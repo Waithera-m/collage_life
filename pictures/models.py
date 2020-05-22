@@ -47,6 +47,32 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    def save_category(self):
+
+        """
+        method saves added category
+        """
+        self.save()
+
+    def update_category(self, using=None, fields=None, **kwargs):
+
+        """
+        method updates saved category
+        """
+        if fields is not None:
+            fields = set(fields)
+            deferred_fields = self.get_deferred_fields()
+            if fields.intersection(deferred_fields):
+                fields = fields.union(deferred_fields)
+        super().refresh_from_db(using, fields, **kwargs)
+
+    def delete_category(self):
+
+        """
+        method deletes saved category
+        """
+        self.delete()
+
 class Image(models.Model):
 
     """
