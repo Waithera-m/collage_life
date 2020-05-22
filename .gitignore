@@ -5,3 +5,5 @@ virtual/
 .env
 
 __pycache__/
+
+.bash_profile
