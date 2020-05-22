@@ -99,4 +99,60 @@ class CategoryModelTests(TestCase):
         category.delete_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories) == 0)
+
+class ImageModelTests(TestCase):
+
+    """
+    class facilitates the creation of tests to test Image model behavior
+    """
+    def setUp(self):
+        """
+        method runs before other tests
+        """
+        self.new_location = Location(location_name='Naivasha')
+        self.new_location.save()
+
+        self.image = Image(image_name="out", image_description="some description", location=self.new_location, pub_date="2020-05-22")
+    
+    def test_init(self):
+        """
+        method checks if objects are initialized properly
+        """
+        self.assertTrue(isinstance(self.image, Image))
+
+    def test_save_image(self):
+        """
+        method tests model save functionality
+        """
+        self.image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+    
+    def test_update_image(self):
+        """
+        method test if models updates saved image
+        """
+        self.new_location = Location(location_name='Naivasha')
+        self.new_location.save()
+        image = Image.objects.create(image_name="out", image_description='some description', location=self.new_location, pub_date='2020-05-22')
+        Image.objects.filter(pk=image.pk).update(image_name='random')
+        image.update_image()
+        self.assertEqual(image.image_name, 'random')
+
+    def test_delete_image(self):
+        """
+        methods checks delete functionality
+        """
+        self.new_location = Location(location_name='Naivasha')
+        self.new_location.save()
+        image = Image.objects.create(image_name="out", image_description='some description', location=self.new_location, pub_date='2020-05-22')
+        Image.objects.filter(pk=image.pk).delete()
+        image.delete_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) == 0)
+
+    def test_get_image_by_id(self):
+        """
+        method checks retrieval of image by id
+        """
         

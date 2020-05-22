@@ -87,3 +87,25 @@ class Image(models.Model):
     def __str__(self):
         return self.image_name
 
+    def save_image(self):
+        """
+        method saves added image
+        """
+        self.save()
+
+    def update_image(self, using=None, fields=None, **kwargs):
+        """
+        method updates saved category
+        """
+        if fields is not None:
+            fields = set(fields)
+            deferred_fields = self.get_deferred_fields()
+            if fields.intersection(deferred_fields):
+                fields = fields.union(deferred_fields)
+        super().refresh_from_db(using, fields, **kwargs)
+    
+    def delete_image(self):
+        """
+        method deletes saved image
+        """
+        self.delete()
