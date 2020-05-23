@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Image, Location, Category
 
 # Create your views here.
 def index(request):
@@ -6,4 +7,5 @@ def index(request):
     """
     view function returns the landing page
     """
-    return render(request,'all_pictures/index.html')
+    images = Image.objects.all()
+    return render(request, 'all_pictures/index.html', {'images':images})

@@ -2,7 +2,14 @@
 
 {% block content %}
     {{block.super}}
+    <div class="jumbotron">
+        <h1 class="text-center">Collage_Life</h1>
+    </div>
     <div class="container">
-        <h1>Can we see this?</h1>
+        <section id="gallery">
+            {% for image in images %}
+                <img src="{{image.image.url}}" class="img-responsive">
+            {% endfor %}
+        </section>
     </div>
 {% endblock %}
