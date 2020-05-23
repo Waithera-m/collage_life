@@ -74,6 +74,8 @@ class Image(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     pub_date = models.DateField('date published', null=True)
+    owner = models.CharField(max_length=70, null=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d', null=True)
 
     def __str__(self):
         return self.image_name
@@ -107,7 +109,7 @@ class Image(models.Model):
         method returns image with a particular id
         """
         try:
-            single_image = cls.objects.filter(pk=image_id).values_list('image_name', flat=True)
+            single_image = cls.objects.filter(pk=image_id)
         except Image.DoesNotExist:
             pass
         return single_image
@@ -128,5 +130,8 @@ class Image(models.Model):
         """
         method returns images associated with a particular category
         """
-        images = cls.objects.filter(category__pk=category_id)
+        try:
+            images = cls.objects.filter(category__pk=category_id)
+        except Image.DoesNotExist:
+            pass
         return images

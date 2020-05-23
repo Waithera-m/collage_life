@@ -161,7 +161,7 @@ class ImageModelTests(TestCase):
         this_image.save()
 
         found_image = Image.get_image_by_id(image_id=this_image.pk)
-        self.assertEqual(found_image, 'out')
+        self.assertEqual(found_image, this_image)
     
     def test_filter_images_by_location(self):
         """
