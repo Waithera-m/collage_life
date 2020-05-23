@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Location(models.Model):
-
     """
     class facilitates the creation of location objects
     """
@@ -12,14 +11,12 @@ class Location(models.Model):
         return self.location_name
 
     def save_location(self):
-
         """
         method saves entered location in database
         """
         self.save()
     
     def update_location(self, using=None, fields=None, **kwargs):
-        
         """
         method updates saved location
         """
@@ -31,14 +28,12 @@ class Location(models.Model):
         super().refresh_from_db(using, fields, **kwargs)
     
     def delete_location(self):
-
         """
         method deletes location
         """
         self.delete()
 
 class Category(models.Model):
-    
     """
     class facilitates the creation of category objects
     """
@@ -48,14 +43,12 @@ class Category(models.Model):
         return self.category_name
 
     def save_category(self):
-
         """
         method saves added category
         """
         self.save()
 
     def update_category(self, using=None, fields=None, **kwargs):
-
         """
         method updates saved category
         """
@@ -67,14 +60,12 @@ class Category(models.Model):
         super().refresh_from_db(using, fields, **kwargs)
 
     def delete_category(self):
-
         """
         method deletes saved category
         """
         self.delete()
 
 class Image(models.Model):
-
     """
     class facilitates the creation of image objects
     """
@@ -109,3 +100,33 @@ class Image(models.Model):
         method deletes saved image
         """
         self.delete()
+
+    @classmethod
+    def get_image_by_id(cls, image_id):
+        """
+        method returns image with a particular id
+        """
+        try:
+            single_image = cls.objects.filter(pk=image_id).values_list('image_name', flat=True)
+        except Image.DoesNotExist:
+            pass
+        return single_image
+    
+    @classmethod
+    def filter_images_by_location(cls, location_id):
+        """
+        method returns images in a given category
+        """
+        try:
+            images = cls.objects.filter(pk=location_id)
+        except Image.DoesNotExist:
+            pass
+        return images
+
+    @classmethod
+    def search_images_by_category(cls, category_id):
+        """
+        method returns images associated with a particular category
+        """
+        images = cls.objects.filter(category__pk=category_id)
+        return images
