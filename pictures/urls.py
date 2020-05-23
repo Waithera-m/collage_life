@@ -7,7 +7,10 @@ app_name = "pictures"
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('animals/', views.animals, name='animals'),
+    path('wedding/', views.wedding, name='wedding'),
+    path('artistic/', views.artistic, name='artistic'),
+    path('vacation/', views.vacation, name='vacation'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
