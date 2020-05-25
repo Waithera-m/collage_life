@@ -1,5 +1,5 @@
 # Collage_Life
-#### The web site displays saved images and allows user to view location and category photos 
+#### The web site displays saved images and allows user to view location and category-specific photos 
 #### By **Waithera-m**
 ## Description
 Collage_Life is a django application that allows users to view saved images as well as the details associated with different images. Users can also use location and category filters to see images associated with particular categories and locations.
@@ -34,7 +34,7 @@ To use the application, users need internet access and web browsers, preferably 
 |------------------------|----------------------------------|----------------------------------|
 |The landing page loads |Users scroll | Users see different photos that are neither category nor location specific|
 |The landing page loads|Users click on any image|Modal which displays a larger image and image details pops up|
-|The landing page loads|Users click on any link in the categories drop down menu |Users are directed to the view that displays all images asociated with the chose category|
+|The landing page loads|Users click on any link in the categories drop down menu |Users are directed to the view that displays all images asociated with the chosen category|
 |The landing page loads|Users click on filter by location navbar link|Users are directed to view that displays images without locations and a list of available locations|
 |The filter by location page loads|Users click on any of the available locations|Users are directed to view that displays images associated with the chosen location|
 |The landing page loads|Users type search term in the navbar form|Users are directed to results page which displays the number and images associated with the entered search term|
@@ -43,7 +43,7 @@ To use the application, users need internet access and web browsers, preferably 
 * CSS & Bootstrap - CSS determines the appearance of webpages. The styling language was used to add background images and colors and style the site's content.
 * Javascript - The high-level programming language was used to create a function to support the copy to clipboard feature
 * Python 3.8.2 - The language was used to create classes, testcases, and functions to retrieve data 
-* [django 3.0.6](https://www.djangoproject.com/) - django is a Python web framework.The framework's apps, urls, and views were used to refactor code and promote code maintenance. Inbuilt filters,classes, and methods were used to initialize the created app and installed extensions and loop through and display saved imagesand navigate to different views. 
+* [django 3.0.6](https://www.djangoproject.com/) - django is a Python web framework.The framework's apps, urls, and views were used to refactor code and promote code maintenance. Inbuilt filters,classes, and methods were used to initialize the created app and installed extensions and loop through and display saved images and navigate to different views. 
 ## Support and contact details
 You are free to suggest and improve the code. To make your changes:
 * Fork the repo
