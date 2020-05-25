@@ -120,7 +120,7 @@ class Image(models.Model):
         method returns images in a given category
         """
         try:
-            images = cls.objects.filter(pk=location_id)
+            images = cls.objects.filter(location__pk=location_id)
         except Image.DoesNotExist:
             pass
         return images

@@ -7,25 +7,6 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                <h3 style="margin-top: 10px; color: white;">Available Locations</h3>
-                <hr>
-                <div class="card" style="background-color: rgb(46, 44, 41); color: white;">
-                    <ul>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:dubai_results'%}" target="_blank">Dubai</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:bangkok_results'%}" target="_blank">Bangkok</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:new_york_results'%}" target="_blank">New York</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:amboseli_results'%}" target="_blank">Amboseli</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:fiji_results'%}" target="_blank">Fiji</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:vanuatu_results'%}" target="_blank">Vanuatu</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:malindi_results'%}" target="_blank">Malindi</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:tsavo_results'%}" target="_blank">Tsavo</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:nairobi_results'%}" target="_blank">Nairobi</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:west_africa_results'%}" target="_blank">West Africa</a></h5></li>
-                        <li><h5><a style="color: white;" href="{% url 'pictures:japan_results'%}" target="_blank">Japan</a></h5></li>
-                    </ul>
-                </div>
-            </div>
             <div class="col-md-8 col-sm-12 col-xs-12 col-lg-8">
                 <section id="gallery">
                     {% for image in images %}
@@ -63,10 +44,7 @@
                     {% endfor %}
                 </section> 
             </div>
-            
         </div>
-        
-        
     </div>
     <script>
         function copyUrl(){
