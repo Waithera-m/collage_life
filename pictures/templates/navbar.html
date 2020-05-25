@@ -26,12 +26,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 navbar-right">
-                    <form class="navbar-form forn-inline" role="search" action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search by Location" name="image">
-                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
-                        </div>
-                    </form>
+                    <li><a style="color: white;" href="{% url 'pictures:get_results'%}">Filter by Location</a></li>
                 </div>
             </div>
         </nav> 
