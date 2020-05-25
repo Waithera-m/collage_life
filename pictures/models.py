@@ -64,7 +64,7 @@ class Category(models.Model):
         method deletes saved category
         """
         self.delete()
-
+    
 class Image(models.Model):
     """
     class facilitates the creation of image objects
@@ -135,5 +135,4 @@ class Image(models.Model):
         except Image.DoesNotExist:
             pass
         return images
-    
     

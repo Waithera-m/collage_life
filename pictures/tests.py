@@ -171,7 +171,7 @@ class ImageModelTests(TestCase):
         self.new_location.save()
         image = Image.objects.create(image_name="out", image_description='some description', location=self.new_location, pub_date='2020-05-22')
         images_by_location = Image.filter_images_by_location(image.location_id)
-        self.assertTrue(len(images_by_location) == 0)
+        self.assertTrue(len(images_by_location) > 0)
 
     def test_search_images_by_category(self):
         """
