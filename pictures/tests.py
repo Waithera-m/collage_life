@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.core import serializers
 from .models import Location, Category, Image
 
 
