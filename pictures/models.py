@@ -64,7 +64,8 @@ class Category(models.Model):
         method deletes saved category
         """
         self.delete()
-    
+
+
 class Image(models.Model):
     """
     class facilitates the creation of image objects
@@ -134,5 +135,13 @@ class Image(models.Model):
             images = cls.objects.filter(category__pk=category_id)
         except Image.DoesNotExist:
             pass
+        return images
+    
+    @classmethod
+    def search_term_category(cls, search_term):
+        """
+        method returns category specific images
+        """
+        images = cls.objects.filter(category__category_name__icontains=search_term)
         return images
     

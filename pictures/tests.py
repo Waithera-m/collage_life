@@ -100,7 +100,7 @@ class ImageModelTests(TestCase):
         """
         self.new_location = Location(location_name='Naivasha')
         self.new_location.save()
-        self.new_category = Category(category_name='wedding')
+        self.new_category = Category(category_name='vacation')
         self.new_category.save()
 
         self.image = Image(image_name="out", image_description="some description", location=self.new_location, pub_date="2020-05-22")
@@ -185,3 +185,16 @@ class ImageModelTests(TestCase):
         pk = self.new_category.id
         images_by_category = Image.search_images_by_category(category_id=pk)
         self.assertTrue(len(images_by_category) > 0)
+    
+    def test_search_term_category(self):
+        """
+        function checks serach by category functionality
+        """
+        self.new_location = Location(location_name='Naivasha')
+        self.new_location.save()
+        image = Image.objects.create(image_name="out", image_description='some description', location=self.new_location, pub_date='2020-05-22')
+        image.save()
+        image.category.add(self.new_category)
+        found_images = image.search_term_category(self.new_category)
+        self.assertTrue(len(found_images) > 0)
+
