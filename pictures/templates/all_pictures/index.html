@@ -28,12 +28,25 @@
                                 <p>{{image.image_description|truncatechars:90}}</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{image.image.url}}" id="imageUrl">
+                                        <button class="btn btn-dark" onclick="copyUrl()">Copy</button>
+                                    </div>
+                                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </section>
-        
+        <script>
+            function copyUrl(){
+                var copyImageUrl = document.getElementById("imageUrl");
+                copyImageUrl.select();
+                document.execCommand("copy");
+                confirm(copyImageUrl + " copied!")
+            }
+        </script>
 {% endblock %}
