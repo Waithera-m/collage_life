@@ -23,6 +23,7 @@ urlpatterns = [
     path('nairobi_results/', views.nairobi_results, name='nairobi_results'),
     path('west_africa_results/', views.west_africa_results, name='west_africa_results'),
     path('japan_results/', views.japan_results, name='japan_results'),
+    path('search/', views.search_results, name='search_results'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

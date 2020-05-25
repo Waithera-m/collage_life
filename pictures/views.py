@@ -124,3 +124,17 @@ def japan_results(request):
     images = Image.filter_images_by_location(location_id=12)
     return render(request, "all_pictures/japan.html", {"images":images})
 
+def search_results(request):
+    """
+    view function returns images specific to the search term provided
+    """
+    if 'image' in request.GET and request.GET['image']:
+        search_term = request.GET.get("image")
+        images = Image.search_term_category(search_term)
+        print(images)
+        message = f"{search_term}"
+        return render(request, 'all_pictures/results.html', {"message":message, "images":images})
+    
+    else:
+        message = "Please enter the search term"
+        return render(request, "all_pictures/results.html", {"message":message})

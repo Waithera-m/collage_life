@@ -15,19 +15,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'pictures:index' %}">Collage_life</a>
+                    <a class="navbar-brand" href="{% url 'pictures:index' %}">Collage_life<i class="fas fa-home my-2 my-sm-0" style="color: rgb(64, 87, 190); margin-left: 2px;"></i></a>
                 </div>
                 <div class="navbar-collapse collapse">
+                    <div class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" role="button" id="dropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: aliceblue;">Categories</a> 
+                        <div class="dropdown-menu" aria-labelledby="dropDown">
+                            <a class="dropdown-item" href="{% url 'pictures:animals' %}">Animals</a>
+                            <a class="dropdown-item" href="{% url 'pictures:wedding' %}">Wedding Ideas</a>
+                            <a class="dropdown-item" href="{% url 'pictures:artistic' %}">Artistic</a>
+                            <a class="dropdown-item" href="{% url 'pictures:vacation' %}">Vacation</a>
+                        </div>
+                    </div>
                     <ul class="nav navbar-nav">
-                        <li><a href="{% url 'pictures:animals' %}">Animals</a></li>
-                        <li><a href="{% url 'pictures:wedding' %}">Wedding Ideas</a></li>
-                        <li><a href="{% url 'pictures:artistic' %}">Artistic</a></li>
-                        <li><a href="{% url 'pictures:vacation' %}">Vacation</a></li>
-                        <li><a style="color: white;" href="{% url 'pictures:get_results'%}">Filter by Location</a></li>
+                        <li><a style="color: white;" href="{% url 'pictures:get_results'%}">Filter by Location<i class="fas fa-archway my-2 my-sm-0" style="color: rgb(64, 87, 190); margin-left: 2px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 navbar-right">
-                    
+                    <form class="navbar-form" role="search" action="{% url 'pictures:search_results' %}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Category" name="image">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fa fa-search" style="color: rgb(64, 87, 190);"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </nav> 
