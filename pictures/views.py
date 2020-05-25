@@ -37,3 +37,10 @@ def vacation(request):
     images = Image.search_images_by_category(category_id=3)
     return render(request, 'all_pictures/vacation.html', {'images':images})
 
+def get_results(request):
+    """
+    view function returns search by location results
+    """
+    images = Image.filter_images_by_location(location_id=2)
+    
+    return render(request, 'all_pictures/search.html', {"images":images})

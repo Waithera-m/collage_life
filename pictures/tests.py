@@ -157,11 +157,11 @@ class ImageModelTests(TestCase):
         """
         newer_location = Location(location_name='Fiji')
         newer_location.save()
-        this_image = Image.objects.create(image_name="out", image_description='some description', location=newer_location, pub_date='2020-05-22')
+        this_image = Image.objects.create(image_name="outt", image_description='some description', location=newer_location, pub_date='2020-05-22')
         this_image.save()
 
         found_image = Image.get_image_by_id(image_id=this_image.pk)
-        self.assertEqual(found_image[0], this_image.image_name)
+        self.assertEqual(found_image[0], this_image)
     
     def test_filter_images_by_location(self):
         """

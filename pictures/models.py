@@ -109,7 +109,7 @@ class Image(models.Model):
         method returns image with a particular id
         """
         try:
-            single_image = cls.objects.filter(pk=image_id).values_list('image_name', flat=True)
+            single_image = cls.objects.filter(pk=image_id)
         except Image.DoesNotExist:
             pass
         return single_image
@@ -135,3 +135,5 @@ class Image(models.Model):
         except Image.DoesNotExist:
             pass
         return images
+    
+    

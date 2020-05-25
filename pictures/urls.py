@@ -11,6 +11,7 @@ urlpatterns = [
     path('wedding/', views.wedding, name='wedding'),
     path('artistic/', views.artistic, name='artistic'),
     path('vacation/', views.vacation, name='vacation'),
+    path('get_results/', views.get_results, name='get_results'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
